@@ -1,0 +1,25 @@
+﻿@model SimpleLogIn.Models.UserModel 
+@{
+    ViewBag.Title = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using(Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Could Not Login. Check your username and password.");
+    <div>
+        <fieldset>
+            <legend>Login Form</legend>
+            <div>@Html.LabelFor(u => u.Email)</div>
+            <div>@Html.TextBoxFor( u => u.Email)
+                @Html.ValidationMessageFor( u => u.Email)
+            </div>
+            <div>
+                <div>@Html.LabelFor(u => u.Password)</div>
+            <div>@Html.PasswordFor( u => u.Password)
+                @Html.ValidationMessageFor( u => u.Password)
+            </div>
+            </div>
+            <input type ="submit" value ="Log In" />
+        </fieldset>
+    </div>
+}
